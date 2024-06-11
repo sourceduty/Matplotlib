@@ -166,5 +166,10 @@ ax.legend()
 plt.show()
 ```
 
+#
+##### Related Links
+
+[Python Architect](https://chatgpt.com/g/g-ltK2f7Fkk-python-architect)
+
 ***
 Copyright (C) 2024, Sourceduty - All Rights Reserved.
