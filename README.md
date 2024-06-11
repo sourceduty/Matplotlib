@@ -1,6 +1,6 @@
 ![Matplotlib Layers](https://github.com/sourceduty/Matplotlib_Layers/assets/123030236/952ecb81-0138-4cb5-971f-510927a3bb7e)
 
-> Overlay multiple plots or graphical elements on a single figure using Matplotlib.Overlay multiple plots or graphical elements on a single figure using Matplotlib.
+> Overlay multiple plots or graphical elements on a single figure using Matplotlib.
 
 #
 
