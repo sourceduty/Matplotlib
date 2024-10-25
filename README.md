@@ -167,7 +167,7 @@ plt.show()
 ```
 
 #
-##### Related Links
+### Related Links
 
 [Python Architect](https://chatgpt.com/g/g-ltK2f7Fkk-python-architect)
 
