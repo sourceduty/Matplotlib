@@ -161,10 +161,12 @@ The layer_animation function animates the layers created by the layers function,
 #
 ### Function Signature
 
+```
 def layer_animation(layers_data, frames, interval=200, repeat=True, axes=None, save_path=None, **kwargs):
     """
     Animate multiple plots or graphical elements over time on a single figure.
     """
+```
 
 #
 ### Parameters
