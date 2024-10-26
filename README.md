@@ -1,3 +1,16 @@
+![Matplotlib](https://github.com/user-attachments/assets/cd86e598-812c-45c8-88fa-0dc7215f88a2)
+
+> Development of Matplotlib for Python.
+
+#
+
+Matplotlib is a popular, comprehensive library for creating static, animated, and interactive visualizations in Python. It provides an extensive range of plotting functions, enabling users to produce high-quality graphs, charts, and plots like line graphs, bar charts, scatter plots, histograms, and 3D plots. Designed with flexibility in mind, Matplotlib allows for detailed customization of figures, including colors, line styles, labels, and axes, giving users control over every aspect of the visual presentation. It integrates well with other libraries such as NumPy and pandas, making it a powerful tool for data analysis and scientific computing. Matplotlib is widely used in various fields like finance, engineering, and data science for its ease of use and versatility.
+
+#
+### Layers
+<details><summary>Expand</summary>
+<br>
+
 ![Matplotlib Layers](https://github.com/sourceduty/Matplotlib_Layers/assets/123030236/952ecb81-0138-4cb5-971f-510927a3bb7e)
 
 > Overlay multiple plots or graphical elements on a single figure using Matplotlib.
@@ -129,6 +142,9 @@ axes.legend()
 
 plt.show()
 ```
+
+<br>
+</details>
 
 #
 ### Related Links
