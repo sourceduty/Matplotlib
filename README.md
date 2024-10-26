@@ -7,7 +7,7 @@
 The objective of the new layers function for the Matplotlib library is to enable users to overlay multiple plots or graphical elements on a single figure. This function will manage the z-order (stacking order) of the elements, allowing for easy customization and manipulation of each layer.
 
 #
-##### Function Signature
+### Function Signature
 
 ```
 def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwargs):
@@ -29,7 +29,7 @@ def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwar
 ```
 
 #
-##### Parameters
+### Parameters
 
 - layers_data: list of dicts
 
@@ -59,7 +59,7 @@ def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwar
 - kwargs: Additional keyword arguments for plot customization that apply to all layers (e.g., title, xlabel, ylabel, etc.).
 
 #
-##### Returns
+### Returns
 
 - matplotlib.figure.Figure
 - The figure object containing the layered plot.
@@ -68,7 +68,7 @@ def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwar
 - The axis object containing the layered plot.
 
 #
-##### Testing
+### Testing
 
 To ensure the layers function works as intended, comprehensive testing should be performed. This includes unit tests to validate the functionality with various types of plots and parameters, as well as testing edge cases such as:
 
@@ -77,7 +77,7 @@ To ensure the layers function works as intended, comprehensive testing should be
 - Different plot customizations and styles
 
 #
-##### Documentation
+### Documentation
 
 Detailed documentation should be provided to guide users on how to use the layers function. This documentation should include:
 
@@ -89,7 +89,7 @@ Detailed documentation should be provided to guide users on how to use the layer
 The layers function should be integrated into the Matplotlib library's official documentation, complete with visual aids and examples, to help users understand and utilize this powerful tool for creating layered plots.
 
 #
-##### Example Code
+### Example Code
 
 ```
 import matplotlib.pyplot as plt
@@ -170,6 +170,8 @@ plt.show()
 ### Related Links
 
 [Python Architect](https://chatgpt.com/g/g-ltK2f7Fkk-python-architect)
+<br>
+[High Python](https://github.com/sourceduty/High_Python)
 
 ***
 Copyright (C) 2024, Sourceduty - All Rights Reserved.
