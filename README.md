@@ -9,7 +9,7 @@ Matplotlib is a popular, comprehensive library for creating static, animated, an
 #
 ### Concept Modules
 
-### Layers
+#### Layers
 <details><summary>Expand</summary>
 <br>
 
@@ -148,7 +148,7 @@ plt.show()
 <br>
 </details>
 
-### Layer Animation
+#### Layer Animation
 <details><summary>Expand</summary>
 <br>
 
