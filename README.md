@@ -4,68 +4,45 @@
 
 #
 
-The objective of the new layers function for the Matplotlib library is to enable users to overlay multiple plots or graphical elements on a single figure. This function will manage the z-order (stacking order) of the elements, allowing for easy customization and manipulation of each layer.
+The layers function allows overlaying multiple plot types or graphical elements on a single figure, with control over the z-order (stacking order) of each layer, enabling custom layered visualizations.
 
 #
 ### Function Signature
 
 ```
-def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwargs):
+def layers(layers_data, axes=None, order=None, show=True, save_path=None, **kwargs):
     """
     Overlay multiple plots or graphical elements on a single figure.
-    
-    Parameters:
-    - layers_data (list of dicts): List of dictionaries containing data and type of plot.
-    - axis (matplotlib.axes.Axes, optional): The axis on which to plot the layers. If None, a new axis is created.
-    - order (list of int, optional): The order in which to stack the layers. If None, layers are stacked in the order provided.
-    - show (bool, optional): Whether to display the plot. Default is True.
-    - save_path (str, optional): Path to save the figure. If None, the figure is not saved.
-    - **kwargs: Additional keyword arguments for plot customization.
-    
-    Returns:
-    - matplotlib.figure.Figure: The figure object containing the layered plot.
-    - matplotlib.axes.Axes: The axis object containing the layered plot.
     """
 ```
 
 #
 ### Parameters
 
-- layers_data: list of dicts
+layers_data (list of dicts): A list of dictionaries, each representing a layer with:
 
-- A list where each element is a dictionary containing data and parameters for a specific plot.
-  
-- Each dictionary should include:
+type (str): The plot type ("line", "scatter", "bar", etc.).
 
-- type: str - The type of plot ("line", "scatter", "bar", etc.).
-- data: dict - The data for the plot, typically including x and y keys with corresponding data lists.
-- kwargs: dict (optional) - Additional keyword arguments for the specific plot type (e.g., color, label, etc.).
+data (dict): Plot data, typically containing x and y keys with corresponding lists.
 
-- axis: matplotlib.axes.Axes, optional
+kwargs (dict, optional): Additional arguments specific to the plot type (e.g., color, label).
 
-- The axis on which to plot the layers. If None, a new axis is created.
+axes (matplotlib.axes.Axes, optional): The plotting area to overlay the layers. Creates a new axes if None.
 
-- order: list of int, optional
+order (list of int, optional): The stacking order of the layers. Defaults to the order provided in layers_data if None.
 
-- The order in which to stack the layers. If None, layers are stacked in the order provided in layers_data.
+show (bool, optional): Whether to display the plot (True by default).
 
-- show: bool, optional
-- Whether to display the plot. Default is True.
+save_path (str, optional): Path to save the figure. If None, the figure is not saved.
 
-- save_path: str, optional
-
-- Path to save the figure. If None, the figure is not saved.
-
-- kwargs: Additional keyword arguments for plot customization that apply to all layers (e.g., title, xlabel, ylabel, etc.).
+**kwargs: Additional global customization arguments for the plot (e.g., title, xlabel, ylabel).
 
 #
 ### Returns
 
-- matplotlib.figure.Figure
-- The figure object containing the layered plot.
+matplotlib.figure.Figure: The figure object containing the layered plot.
 
-- matplotlib.axes.Axes
-- The axis object containing the layered plot.
+matplotlib.axes.Axes: The axes object containing the layered plot.
 
 #
 ### Testing
@@ -94,35 +71,22 @@ The layers function should be integrated into the Matplotlib library's official 
 ```
 import matplotlib.pyplot as plt
 
-def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwargs):
+def layers(layers_data, axes=None, order=None, show=True, save_path=None, **kwargs):
     """
     Overlay multiple plots or graphical elements on a single figure.
-    
-    Parameters:
-    - layers_data (list of dicts): List of dictionaries containing data and type of plot.
-    - axis (matplotlib.axes.Axes, optional): The axis on which to plot the layers. If None, a new axis is created.
-    - order (list of int, optional): The order in which to stack the layers. If None, layers are stacked in the order provided.
-    - show (bool, optional): Whether to display the plot. Default is True.
-    - save_path (str, optional): Path to save the figure. If None, the figure is not saved.
-    - **kwargs: Additional keyword arguments for plot customization.
-    
-    Returns:
-    - matplotlib.figure.Figure: The figure object containing the layered plot.
-    - matplotlib.axes.Axes: The axis object containing the layered plot.
     """
-    
-    # Create figure and axis if not provided
-    if axis is None:
+    # Create figure and axes if not provided
+    if axes is None:
         fig, ax = plt.subplots()
+        axes = ax  # Assign to axes for consistency
     else:
-        ax = axis
-        fig = ax.figure
+        fig = axes.figure
 
-    # Determine the order of layers
+    # Determine layer stacking order
     if order is None:
         order = range(len(layers_data))
 
-    # Add each layer
+    # Overlay each specified layer
     for idx in order:
         layer = layers_data[idx]
         plot_type = layer.get("type")
@@ -131,37 +95,37 @@ def layers(layers_data, axis=None, order=None, show=True, save_path=None, **kwar
         plot_kwargs.update(kwargs)
 
         if plot_type == "line":
-            ax.plot(data["x"], data["y"], **plot_kwargs)
+            axes.plot(data["x"], data["y"], **plot_kwargs)
         elif plot_type == "scatter":
-            ax.scatter(data["x"], data["y"], **plot_kwargs)
+            axes.scatter(data["x"], data["y"], **plot_kwargs)
         elif plot_type == "bar":
-            ax.bar(data["x"], data["y"], **plot_kwargs)
-        # Add other plot types as needed
+            axes.bar(data["x"], data["y"], **plot_kwargs)
+        # Additional plot types can be added here as needed
 
-    # Show the plot
+    # Display plot if show=True
     if show:
         plt.show()
 
-    # Save the figure if a path is provided
+    # Save the figure if a path is specified
     if save_path:
         fig.savefig(save_path)
 
-    return fig, ax
+    return fig, axes
 
-# Example usage of the layers function
+# Example usage
 layers_data = [
     {"type": "line", "data": {"x": [1, 2, 3], "y": [4, 5, 6]}, "kwargs": {"color": "blue", "label": "Line Plot"}},
     {"type": "scatter", "data": {"x": [1, 2, 3], "y": [6, 5, 4]}, "kwargs": {"color": "red", "label": "Scatter Plot"}},
     {"type": "bar", "data": {"x": [1, 2, 3], "y": [5, 6, 7]}, "kwargs": {"color": "green", "label": "Bar Plot"}}
 ]
 
-fig, ax = layers(layers_data, order=[2, 0, 1], show=False)
+fig, axes = layers(layers_data, order=[2, 0, 1], show=False)
 
-# Customizing the plot further
-ax.set_title("Layered Plot Example")
-ax.set_xlabel("X-Axis")
-ax.set_ylabel("Y-Axis")
-ax.legend()
+# Customizing plot
+axes.set_title("Layered Plot Example")
+axes.set_xlabel("X-Axis")
+axes.set_ylabel("Y-Axis")
+axes.legend()
 
 plt.show()
 ```
