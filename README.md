@@ -155,7 +155,6 @@ The concept of layering and animating plots in Matplotlib enhances the visualiza
 Animating layered plots adds another dimension to data visualization, transforming static figures into dynamic, time-evolving representations. The layer_animation function, for instance, allows users to animate multiple layers of data, showing changes over time or across steps in a process. This is valuable for visualizing time-series data, simulations, or any scenario where observing the evolution of variables is critical. By updating each layer frame by frame, users can create informative and engaging animations, making it easier to communicate complex information effectively. The ability to customize frame intervals, repeat animations, and save them in various formats (e.g., GIFs or video files) further enhances the function’s versatility, allowing users to create and share dynamic visual content in presentations, reports, or interactive applications.
 
 #
-### layer_animation Function Overview
 
 The layer_animation function animates the layers created by the layers function, allowing for dynamic visualization of changes over time. This can be useful for visualizing time-series data, evolving distributions, or any dataset where changes over time or steps are meaningful.
 
