@@ -146,7 +146,6 @@ plt.show()
 <br>
 </details>
 
-#
 ### Layer Animation
 <details><summary>Expand</summary>
 <br>
