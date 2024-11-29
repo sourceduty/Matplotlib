@@ -225,5 +225,8 @@ Another key source of income is partnerships and integrations with other softwar
 <br>
 [Python](https://github.com/sourceduty/Python)
 
+#
+![Conceptual](https://github.com/user-attachments/assets/6067f61a-958e-4666-a593-1c71f440694e)
+
 ***
 Copyright (C) 2024, Sourceduty - All Rights Reserved.
